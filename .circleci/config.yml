@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       
-  Server_Testing:
+  server_testing:
     executor:
       name: node/default
     steps:
@@ -22,7 +22,7 @@ jobs:
           command: npm test
           working_directory: ./server
             
-  Client_Testing:
+  client_testing:
     executor:
       name: node/default
     steps:
@@ -36,9 +36,9 @@ workflows:
     build-and-test:
       jobs:
         - build
-        - Server_Testing:
+        - server_testing:
             requires:
               - build
-        - Client_Testing:
+        - client_testing:
             requires:
               - build
