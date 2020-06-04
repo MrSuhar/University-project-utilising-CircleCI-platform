@@ -40,7 +40,7 @@ workflows:
         - build
         - server_testing:
             requires:
-              - build
+                - build
         - client_testing:
             requires:
-              - build
+                - build
