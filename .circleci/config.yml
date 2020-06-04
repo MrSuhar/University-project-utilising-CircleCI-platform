@@ -42,16 +42,14 @@ workflows:
           filters:
             branches:
               only:
-               - master
-                    
+               - master                    
         - server_testing:
             filters:
               branches:
                 only:
                  - master
             requires:
-                - build
-                
+                - build                
         - client_testing:
             filters:
               branches:
