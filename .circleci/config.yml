@@ -7,6 +7,12 @@ jobs:
       name: node/default
     steps:
       - checkout
+      
+  Server_Testing:
+    executor:
+      name: node/default
+    steps:
+      - checkout
       - node/install-packages:
           app-dir: ./server
       - run:
@@ -15,6 +21,11 @@ jobs:
       - run:
           command: npm test
           working_directory: ./server
+            
+  Client_Testing:
+    executor:
+      name: node/default
+    steps:
       - run:
           command: npm install
           working_directory: ./client
@@ -25,3 +36,10 @@ workflows:
     build-and-test:
       jobs:
         - build-and-test
+        - build
+        - Server-Testing:
+            requires:
+              - build
+        - Client-Testing:
+            requires:
+              - build
