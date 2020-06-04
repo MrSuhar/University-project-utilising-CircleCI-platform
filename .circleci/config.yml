@@ -36,9 +36,9 @@ workflows:
     build-and-test:
       jobs:
         - build
-        - Server-Testing:
+        - Server_Testing:
             requires:
               - build
-        - Client-Testing:
+        - Client_Testing:
             requires:
               - build
