@@ -7,7 +7,7 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/install_packages:
+      - node/install-packages:
           app-dir: ./server
       - run:
           command: npm install
